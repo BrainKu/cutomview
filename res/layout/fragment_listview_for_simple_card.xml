@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_marginLeft="2dp"
+	android:layout_marginRight="2dp"
+	android:background="#EEE"
+	android:orientation="vertical" >
+
+	<ListView
+		android:id="@+id/lv_scanrecords"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginLeft="2dp"
+		android:layout_marginRight="2dp"
+		android:background="#EEE"
+		android:divider="@null"
+		android:listSelector="@android:color/transparent"
+		android:scrollbars="none"
+		tools:listitem="@layout/list_item_simple_card_with_color_left" />
+
+	<TextView
+		android:id="@+id/tv_empty"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/light_gray"
+		android:gravity="center"
+		android:text="空空的 "
+		android:textSize="20sp"
+		android:visibility="gone" />
+
+</LinearLayout>

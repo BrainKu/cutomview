@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="ab_black">#222</color>
+	<color name="feedback_background_color">#f4f4fa</color>
+	<color name="btn_pressed">#87CEEB</color>
+	<color name="result_view">#b0000000</color>
+	<color name="viewfinder_mask">#60000000</color>
+	<color name="possible_result_points">#c0ffff00</color>
+	<color name="lightTextViewColor">#777777</color>
+	<color name="blue">#0000DD</color>
+	<color name="default_gray">#777</color>
+	<color name="btn_blue_normal">#33B5E5</color>
+	<color name="btn_blue_pressed">#0099CC</color>
+	<color name="btn_green_normal">#99CC00</color>
+	<color name="btn_green_pressed">#669900</color>
+	<color name="btn_orange_normal">#FFBB33</color>
+	<color name="btn_orange_pressed">#FF8800</color>
+	<color name="text_default_color">#333</color>
+	<color name="text_selected_color">#EEE</color>
+	<color name="listitem_default_color">#FFF</color>
+	<color name="listitem_selected_color">#33B5E5</color>
+	<color name="text_qrtype_ys_lost_item">#0c98a5</color>
+	<color name="text_qrtype_link">#ff940a</color>
+	<color name="text_qrtype_ys_audio">#15822a</color>
+	<color name="text_qrtype_ys_video">#56a006</color>
+	<color name="text_qrtype_ys_wifi">#5bd2e4</color>
+	<color name="text_qrtype_ys_text">#c81e1e</color>
+	<color name="text_qrtype_normal_text">#cdcdcd</color>
+	<color name="holo_blue_light">#ff33b5e5</color>
+	<color name="text_hink_color">#DDDDDD</color>
+	<color name="light_gray">#DDEDEDED</color>
+	<color name="content_gray">#555</color>
+	<color name="listview_pressed">#700088CC</color>
+	<color name="listview_activated">#660088CC</color>
+	<color name="normal_gray">#555555</color>
+
+</resources>
