@@ -18,7 +18,7 @@ import com.kuxinwei.customview.R;
 
 /**
  * 自定义组合控件。由一个包含 {@link ImageView} 和 {@link TextView} 的 {@link LinearLayout} 组成。<br>
- * 布局文件在 {@code R.layout.imageview_button_layout} 中定义。<br>
+ * 布局文件在 {@code R.layout.ivbtn_layout} 中定义。<br>
  * 在xml布局使用时能够定义的属性有LinearLayout相关的属性以及:<br>
  * {@code android:src}<br>
  * {@code android:text}
