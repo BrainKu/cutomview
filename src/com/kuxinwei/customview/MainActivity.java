@@ -1,9 +1,12 @@
 package com.kuxinwei.customview;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.kuxinwei.customview.fragment.TaijiFragment;
 
 public class MainActivity extends Activity {
 
@@ -11,6 +14,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		FragmentTransaction ft = getFragmentManager().beginTransaction();
+		ft.replace(R.id.container, new TaijiFragment());
+		ft.commit();
 	}
 
 	@Override
@@ -21,9 +27,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
