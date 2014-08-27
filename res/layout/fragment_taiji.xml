@@ -5,9 +5,9 @@
 	android:background="#DDD"
 	android:orientation="vertical" >
 
-	<com.kuxinwei.customview.drawable.TaiJiView
-		android:layout_width="200dp"
-		android:layout_height="200dp"
+	<com.kuxinwei.customview.view.TaiJiView
+		android:layout_width="100dp"
+		android:layout_height="100dp"
 		android:layout_gravity="center"
 		android:layout_marginTop="20dp" />
 

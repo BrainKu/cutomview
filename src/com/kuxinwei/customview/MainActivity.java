@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.kuxinwei.customview.fragment.TaijiFragment;
+import com.kuxinwei.customview.fragment.BWClockFragment;
 
 public class MainActivity extends Activity {
 
@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		FragmentTransaction ft = getFragmentManager().beginTransaction();
-		ft.replace(R.id.container, new TaijiFragment());
+		ft.replace(R.id.container, new BWClockFragment());
 		ft.commit();
 	}
 

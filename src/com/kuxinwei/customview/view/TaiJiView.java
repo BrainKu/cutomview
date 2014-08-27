@@ -1,4 +1,4 @@
-package com.kuxinwei.customview.drawable;
+package com.kuxinwei.customview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
+import android.graphics.Path.FillType;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -19,13 +20,11 @@ public class TaiJiView extends View {
 	private Paint mWhitePaint;
 	private Path mPath = new Path();
 	private Path mBlackPath = new Path();
-	private Path mWhitePath = new Path();
-	private Path mBlackPointPath = new Path();
 	private RectF mRectF = new RectF();
 	private RectF mTopRectF = new RectF();
 	private RectF mBottomRectF = new RectF();
 	private PointF mCenterPoint = new PointF();
-
+	private float degrees = 0.0f;
 	private int mStrokeWidth = 4;
 	private int mBorderWidth = 4;
 
@@ -42,16 +41,17 @@ public class TaiJiView extends View {
 		super.onSizeChanged(w, h, oldw, oldh);
 		height = h;
 		width = w;
-		float centerX = w / 2;
-		float centerY = h / 2;
+		float centerX = width * 0.5f;
+		float centerY = height * 0.5f;
 		mCenterPoint.set(centerX, centerY);
-		float halfW = mBorderWidth / 2.0f;
+		float halfW = mBorderWidth * 0.5f;
+		float forthW = centerX * 0.5f;
 		mRectF.set(0 + halfW, 0 + halfW, width - halfW, height - halfW);
-		float forthW = width / 4.0f;
 		mTopRectF.set(forthW + halfW, 0 + halfW, centerX + forthW - halfW,
 				centerY);
 		mBottomRectF.set(forthW + halfW, centerY, centerX + forthW - halfW,
 				height - halfW);
+		mBlackPath.setFillType(FillType.EVEN_ODD);
 		initPath();
 	}
 
@@ -72,26 +72,28 @@ public class TaiJiView extends View {
 	}
 
 	private void initPath() {
-		mWhitePath.reset();
-		mBlackPointPath.reset();
+		mBlackPath.reset();
 		mPath.addOval(mRectF, Direction.CCW);
 		mBlackPath.addArc(mTopRectF, -90, 180);
 		mBlackPath.addArc(mRectF, 90, 180);
-		mWhitePath.addCircle(mTopRectF.centerX(), mTopRectF.centerY(),
-				mTopRectF.height() / 10, Direction.CCW);
-		mWhitePath.addArc(mBottomRectF, 90, 180);
-		mBlackPointPath.addCircle(mBottomRectF.centerX(),
-				mBottomRectF.centerY(), mBottomRectF.height() / 10,
-				Direction.CCW);
+		mBlackPath.addArc(mBottomRectF, 90, 180);
+		mBlackPath.addCircle(mBottomRectF.centerX(), mBottomRectF.centerY(),
+				mBottomRectF.width() * 0.16f, Direction.CCW); // 绘制上面的黑色小圆点
+		mBlackPath.addCircle(mTopRectF.centerX(), mTopRectF.centerY(),
+				mTopRectF.width() * 0.16f, Direction.CCW); // 再画一遍，以此来使其透出小白点
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		super.onDraw(canvas);
+		canvas.rotate(degrees, mCenterPoint.x, mCenterPoint.y);
 		canvas.drawPath(mPath, mBorderPaint);
 		canvas.drawPath(mPath, mWhitePaint);
 		canvas.drawPath(mBlackPath, mPaint);
-		canvas.drawPath(mWhitePath, mWhitePaint);
-		canvas.drawPath(mBlackPointPath, mPaint);
+		increate();
+	}
+
+	private void increate() {
+		degrees += 4;
+		invalidate();
 	}
 }
